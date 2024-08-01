@@ -1,9 +1,6 @@
 class Calculator():
     def add(self, *args):
-        sum = 0;
-        for n in args:
-            sum = sum + n;
-        return sum
+        return sum(args)
 
     def subtract(self, x, y):
         return x - y
