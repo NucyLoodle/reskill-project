@@ -9,19 +9,20 @@ function button_pressed() {
     // gets id from each button
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
-            
+            // allow user to clear display
+            if (button.textContent === 'AC') {
+                display.textContent = '0'            
             // update display by replacing the 0 value
-            if (display.textContent === '0') {
+            }else if (display.textContent === '0') {
                 display.textContent = button.textContent
             // update display with operations
             } else if (button.textContent != '=') {
-                display.textContent += button.textContent
-            // prevent user from entering more than one operation at a time
-            // pass
+                display.textContent += button.textContent           
+            // compute calculation
             } else {
                 calculation = display.textContent
+                // catch errors from user input
                 try {
-                    
                     solution = eval(calculation)
                     display.textContent = solution                    
                 } catch (error) {
