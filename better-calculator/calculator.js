@@ -16,10 +16,6 @@ const calculator = {
     prevTotal: null, //should store the total from the previous operation
 
     parseInput(value) { //pass value from button in
-        if (this.displayText === '0') {
-            this.displayText = ''
-        }
-        //check to see if any 'special' buttons have been clicked
         switch (value) { //compare value against several cases
             case '=' : 
                 //compute answer
@@ -33,8 +29,26 @@ const calculator = {
                 } else {
                     //add decimal to text string
                 }
+                break;
+            default:
+                //add value to text string
+        }     
+    },
 
+
+    addText(value) {
+        if (this.displayText === '0') { //check to see if any 'special' buttons have been clicked
+            this.displayText = ''
+        } else if (this.prevTotal !== null) {
+            this.displayText = this.prevTotal
+            this.prevTotal = null
         }
+        if (/*user has entered an invalid sequence, don't proceed*/) {
+            return;
+        }
+        this.displayText += value
+        // output text to screen
 
-    }
+
+    },
 }
