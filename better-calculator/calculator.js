@@ -25,6 +25,7 @@ const calculator = {
                 break;
             case 'AC' : 
                 //clear screen and stored values
+                this.clearAll()
                 break;
             case '.' :
                 if (this.displayText == '0') {
@@ -69,6 +70,12 @@ const calculator = {
     calcAnswer(equation) {
         let result = Function("return " + equation){}
         this.outputText(result)
+    },
+
+    clearAll() {
+        this.displayText = '0',
+        this.prevTotal = null,
+        this.outputText(this.displayText)
     }
 }
 
