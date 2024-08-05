@@ -8,7 +8,7 @@ keys.addEventListener('click', event => {
         
         return;
     } else {
-        console.log(target)
+        calculator.parseInput(value)
     }
 })
 
