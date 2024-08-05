@@ -25,7 +25,7 @@ const calculator = {
                 break;
             case '.' :
                 if (this.displayText === '0') {
-                    //pass string of '0.#' into method
+                    this.addText(value)
                 } else {
                     //add decimal to text string
                 }
@@ -43,11 +43,15 @@ const calculator = {
             this.displayText = this.prevTotal
             this.prevTotal = null
         }
-        if (/*user has entered an invalid sequence, don't proceed*/) {
-            return;
+        /*check whether the last char in display AND the entered value are not numbers*/
+        if (isNaN(+(value)) && isNaN(+(this.displayText))) {
+            //check if the last character entered is NaN
+            if (isNaN(this.displayText.slice(-1))) {
+                return;
+            }
         }
         this.displayText += value
-        // output text to screen
+        // output display text to screen
 
 
     },
