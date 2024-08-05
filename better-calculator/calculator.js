@@ -68,7 +68,7 @@ const calculator = {
     },
 
     calcAnswer(equation) {
-        let result = Function("return " + equation){}
+        let result = Function("return " + equation)()
         this.outputText(result)
     },
 
