@@ -24,14 +24,17 @@ const calculator = {
                 //clear screen and stored values
                 break;
             case '.' :
-                if (this.displayText === '0') {
-                    this.addText(value)
+                if (this.displayText == '0') {
+                    this.addText('0.')
                 } else {
                     //add decimal to text string
+                    this.addText(value)
                 }
                 break;
             default:
                 //add value to text string
+                this.addText(value)
+                break;
         }     
     },
 
@@ -51,8 +54,10 @@ const calculator = {
             }
         }
         this.displayText += value
-        // output display text to screen
-
-
     },
+
+    outputText(text) {
+        // output display text to screen
+        document.querySelector('.calculator-screen').value = text 
+    }
 }
