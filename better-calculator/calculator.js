@@ -5,9 +5,10 @@ keys.addEventListener('click', event => {
     const {target} = event; //extracts target from the event info
     const {value} = target; //extract the value property from the target ie the number clicked!
     if (!target.matches('button')) { //check the user clicked a button
+        
         return;
     } else {
-        //console.log(target)
+        console.log(target)
     }
 })
 
@@ -15,10 +16,12 @@ const calculator = {
     displayText: '0', //the value that shows up when you first open calculator
     prevTotal: null, //should store the total from the previous operation
 
-    parseInput(value) { //pass value from button in
+    parseInput(value) { 
+        //pass value from button in
         switch (value) { //compare value against several cases
             case '=' : 
                 //compute answer
+                this.calcAnswer(this.displayText)
                 break;
             case 'AC' : 
                 //clear screen and stored values
@@ -54,10 +57,18 @@ const calculator = {
             }
         }
         this.displayText += value
+        // output display text to screen
+        this.outputText(this.displayText)
     },
 
     outputText(text) {
         // output display text to screen
         document.querySelector('.calculator-screen').value = text 
+    },
+
+    calcAnswer(equation) {
+        let result = Function("return " + equation){}
+        this.outputText(result)
     }
 }
+
