@@ -20,6 +20,11 @@ class TestCalculator(TestCase):
         expected = 12
         self.assertEqual(expected, result)
 
+    def test_divide(self):
+        result = calculator.divide(10, 5)
+        expected = 2
+        self.assertEqual(expected, result)
+
 
 if __name__ == '__main__':
     unittest.main()
