@@ -9,6 +9,11 @@ class TestCalculator(TestCase):
         result = calculator.add(3, 5)
         expected = 8
         self.assertEqual(expected, result)
+    
+    def test_subtract(self):
+        result = calculator.subtract(8,2)
+        expected = 6
+        self.assertEqual(expected,result)
 
 
 if __name__ == '__main__':
