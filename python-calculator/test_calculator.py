@@ -25,6 +25,10 @@ class TestCalculator(TestCase):
         expected = 2
         self.assertEqual(expected, result)
 
+    def test_invalid_inputs(self):
+        with self.assertRaises(TypeError):
+            equation = calculator.add('x', 'y')
+
 
 if __name__ == '__main__':
     unittest.main()
