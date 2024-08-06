@@ -11,9 +11,14 @@ class TestCalculator(TestCase):
         self.assertEqual(expected, result)
     
     def test_subtract(self):
-        result = calculator.subtract(8,2)
+        result = calculator.subtract(8, 2)
         expected = 6
         self.assertEqual(expected,result)
+
+    def test_multiply(self):
+        result = calculator.multiply(3, 4)
+        expected = 12
+        self.assertEqual(expected, result)
 
 
 if __name__ == '__main__':
